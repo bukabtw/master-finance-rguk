@@ -67,18 +67,23 @@
 ## 📸 Скриншоты
 
 *Секция "Почему стоит выбрать" с нестандартной сеткой*  
+
 ![Why Section](screenshots/why-section.png)
 
 *Сложная 12-колоночная сетка преимуществ*  
+
 ![Benefits Grid](screenshots/benefits-grid.png)
 
 *Сетка статистики университета*  
+
 ![Stats Grid](screenshots/stats-grid.png)
 
 *Аккордеон FAQ с JavaScript*  
+
 ![FAQ Section](screenshots/faq-accordion.png)
 
 *Секция партнёров с адаптивной сеткой логотипов*  
+
 ![Partners Grid](screenshots/partners-grid.png)
 
 ...

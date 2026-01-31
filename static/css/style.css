@@ -52,20 +52,29 @@ html {
   padding: 8px 16px;
   border-radius: 6px;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .nav-buttons a:hover {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-.auth-link {
-    background-color: #00b4ff;
-    color: #0b145c !important;
-    font-weight: 600 !important;
+.auth-link-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
 }
 
-.auth-link:hover {
-    background-color: #0098d6 !important;
+.auth-link-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* BURGER */
@@ -1177,22 +1186,29 @@ body.mobile-open .logo {
     text-decoration: underline;
 }
 
-/* Custom form styling for auth pages */
-.auth-wrapper form p {
+/* Custom form styling for auth pages and profile */
+.auth-wrapper form p,
+.profile-card form p {
     text-align: left;
     margin-bottom: 15px;
 }
 
-.auth-wrapper label {
+.auth-wrapper label,
+.profile-card label {
     display: block;
     margin-bottom: 5px;
     font-weight: 500;
+    color: white;
 }
 
 .auth-wrapper input[type="text"],
 .auth-wrapper input[type="password"],
 .auth-wrapper input[type="email"],
-.auth-wrapper input[type="file"] {
+.auth-wrapper input[type="file"],
+.profile-card input[type="text"],
+.profile-card input[type="password"],
+.profile-card input[type="email"],
+.profile-card input[type="file"] {
     width: 100%;
     padding: 12px 16px;
     border-radius: 8px;
@@ -1204,7 +1220,8 @@ body.mobile-open .logo {
     font-family: 'Inter', sans-serif;
 }
 
-.auth-wrapper input:focus {
+.auth-wrapper input:focus,
+.profile-card input:focus {
     outline: none;
     border-color: #00c2ff;
     background: rgba(255, 255, 255, 0.15);
@@ -1283,6 +1300,10 @@ body.mobile-open .logo {
 .profile-section {
     padding: 40px 20px;
     background-color: #0b145c;
+    background-image: url('../addons/background1.svg');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
     min-height: 80vh;
 }
 
@@ -1290,15 +1311,18 @@ body.mobile-open .logo {
     max-width: 900px;
     margin: 0 auto;
     padding: 40px;
-    background: white;
+    background: rgba(103, 116, 142, 0.6);
     border-radius: 20px;
-    color: #0b145c;
+    color: white;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .profile-card h2 {
     margin-bottom: 30px;
-    color: #0023c4;
+    color: white;
     font-size: 36px;
     margin-top: 0;
 }
@@ -1316,7 +1340,7 @@ body.mobile-open .logo {
 
 .profile-col h3 {
     margin-bottom: 20px;
-    color: #0023c4;
+    color: #00c2ff;
     font-size: 24px;
 }
 
@@ -1351,12 +1375,12 @@ body.mobile-open .logo {
 .profile-info h4 {
     margin: 0 0 5px 0;
     font-size: 22px;
-    color: #0b145c;
+    color: white;
 }
 
 .profile-info p {
     margin: 0;
-    color: #666;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 16px;
 }
 
@@ -1379,12 +1403,12 @@ body.mobile-open .logo {
     font-size: 18px;
     display: block;
     margin-bottom: 4px;
-    color: #0b145c;
+    color: white;
 }
 
 .app-date {
     font-size: 14px;
-    color: #888;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .profile-save-btn {
@@ -1429,4 +1453,90 @@ body.mobile-open .logo {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+/* PARTNERS SECTION */
+.partners {
+    padding: 80px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.partners h2 {
+    font-size: 48px;
+    color: #0023c4;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.partners-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.partners-row img {
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.partners-row img:hover {
+    transform: scale(1.1);
+}
+
+/* FOOTER */
+.footer {
+    background-color: #0b145c;
+    color: white;
+    padding: 60px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-left-columns h2 {
+    font-size: 36px;
+    color: #00c2ff;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.footer-rows-2col {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.footer-subcol p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Z-INDEX FIX */
+.auth-section {
+    z-index: 10;
+    position: relative;
 }

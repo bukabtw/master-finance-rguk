@@ -24,7 +24,17 @@
 
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    {% for field in form %}
+                    <div class="auth-form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                        <div class="error-message">
+                            {{ field.errors.0 }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
                     <button type="submit" class="profile-save-btn">Сохранить изменения</button>
                 </form>
             </div>

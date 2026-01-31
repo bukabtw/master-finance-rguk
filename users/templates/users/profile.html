@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="profile-section">
+    <div class="profile-card">
+        <h2>Личный кабинет</h2>
+        
+        <div class="profile-content">
+            <div class="profile-col">
+                <h3>Профиль</h3>
+                <div class="profile-header">
+                    {% if user.avatar %}
+                        <img src="{{ user.avatar.url }}" alt="Avatar" class="avatar-img">
+                    {% else %}
+                        <div class="avatar-placeholder">
+                            No Image
+                        </div>
+                    {% endif %}
+                    <div class="profile-info">
+                        <h4>{{ user.username }}</h4>
+                        <p>{{ user.email }}</p>
+                    </div>
+                </div>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="profile-save-btn">Сохранить изменения</button>
+                </form>
+            </div>
+
+            <div class="profile-col">
+                <h3>Мои заявки</h3>
+                {% if applications %}
+                    <ul class="app-list">
+                        {% for app in applications %}
+                            <li class="app-item">
+                                <span class="app-name">{{ app.name }}</span>
+                                <span class="app-date">{{ app.created_at|date:"d.m.Y H:i" }}</span>
+                                <br>
+                                Телефон: {{ app.phone }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>У вас пока нет заявок.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

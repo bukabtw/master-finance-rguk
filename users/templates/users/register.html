@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="main-section auth-section" style="background-image: url('{% static 'addons/background1.svg' %}');">
+    <div class="auth-wrapper">
+        <h2>Регистрация</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="auth-form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                <div class="error-message">
+                    {{ field.errors.0 }}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="auth-button">Зарегистрироваться</button>
+        </form>
+        <p>
+            Есть аккаунт? <a href="{% url 'login' %}">Войти</a>
+        </p>
+    </div>
+</section>
+{% endblock %}
